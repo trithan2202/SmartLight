@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "author": "door clouds",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 4.84,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -42,
+      "left": -188.2,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -42,
+      "left": -130.6,
+      "attrs": { "color": "yellow" }
+    },
+    { "type": "wokwi-led", "id": "led3", "top": -42, "left": -82.6, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 52.8,
+      "left": -192.55,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 52.8,
+      "left": -134.95,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 52.8,
+      "left": -86.95,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -73.6,
+      "left": 125.6,
+      "attrs": {}
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 52, "left": 309.42, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 258.6,
+      "left": -189,
+      "rotate": 90,
+      "attrs": { "color": "blue", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 258.6,
+      "left": -131.4,
+      "rotate": 90,
+      "attrs": { "color": "yellow", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 258.6,
+      "left": -54.6,
+      "rotate": 90,
+      "attrs": { "color": "red", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "led1:A", "r1:1", "blue", [ "v0" ] ],
+    [ "led2:A", "r2:1", "gold", [ "v0" ] ],
+    [ "led3:A", "r3:1", "green", [ "v0" ] ],
+    [ "led1:C", "esp:GND.1", "black", [ "v0" ] ],
+    [ "led2:C", "esp:GND.1", "black", [ "v0" ] ],
+    [ "led3:C", "esp:GND.1", "black", [ "v0" ] ],
+    [ "r1:2", "esp:26", "blue", [ "v27.6", "h167.81" ] ],
+    [ "r2:2", "esp:27", "gold", [ "v37.2", "h110.21" ] ],
+    [ "r3:2", "esp:14", "green", [ "v46.8", "h62.21" ] ],
+    [ "ldr1:AO", "esp:34", "green", [ "v18.5", "h-307.2", "v76.8" ] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "h19.2", "v57.6", "h-307.35" ] ],
+    [ "ldr1:GND", "esp:GND.2", "black", [ "h9.6", "v76.4" ] ],
+    [ "pir1:OUT", "esp:35", "green", [ "v86.4", "h-134.54", "h-230.4", "v-153.6" ] ],
+    [ "pir1:VCC", "esp:5V", "red", [ "v76.8", "h-240.15" ] ],
+    [ "pir1:GND", "esp:GND.3", "black", [ "v28.8", "h-67.46", "v-86.4" ] ],
+    [ "btn1:2.l", "esp:18", "blue", [ "v-9.6", "h287.8", "v-134.4" ] ],
+    [ "btn2:2.l", "esp:19", "gold", [ "h-0.2", "v-9.6", "h220.8", "v-144" ] ],
+    [ "btn3:2.l", "esp:23", "green", [ "h163", "v-211.2" ] ],
+    [ "btn1:1.r", "esp:GND.1", "black", [ "v19.4", "h-67.2", "v-182.4" ] ],
+    [ "btn2:1.r", "esp:GND.1", "black", [ "v19.4", "h-124.8", "v-182.4" ] ],
+    [ "btn3:1.r", "esp:GND.1", "black", [ "v19.4", "h-201.6", "v-182.4" ] ]
+  ],
+  "dependencies": {}
+}
